@@ -1,14 +1,14 @@
-import Auth from "../components/Auth";
 import Quote from "../components/Quote";
+import Signup from "../components/Signup";
 
-const Signup = () => {
+const SignupPage = () => {
   return (
     <div className=" flex justify-center ">
-      <Auth type="signup"></Auth>
+      <Signup></Signup>
 
       <Quote></Quote>
     </div>
   );
 };
 
-export default Signup;
+export default SignupPage;
