@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 import { SignupInput } from "@aktmishra/medium_common";
@@ -8,6 +8,7 @@ import { BACKEND_URL } from "../config/const";
 import toast from "react-hot-toast";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [signupInputs, setSignupInputs] = useState<SignupInput>({
     name: "",
     email: "",
@@ -30,6 +31,7 @@ const Signup = () => {
       localStorage.setItem("jwt", jwt);
       if (success) {
         toast.success(response.data.message);
+        navigate("/blogs");
       } else {
         toast.error(response.data.message);
       }

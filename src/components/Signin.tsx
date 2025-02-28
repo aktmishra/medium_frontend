@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { SigninInput } from "@aktmishra/medium_common";
 import LabelInput from "./LabelInput";
@@ -8,6 +8,7 @@ import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
 
 const Signin = () => {
+  const navigate = useNavigate()
   const [signinInputs, setSigninInputs] = useState<SigninInput>({
     email: "",
     password: "",
@@ -28,6 +29,7 @@ const Signin = () => {
       localStorage.setItem("jwt", jwt);
       if (success) {
         toast.success(response.data.message);
+        navigate("/blogs")
       } else {
         toast.error(response.data.message);
       }
